@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebGIS A2 - OpenLayers Geocoding + Weather</title>
+
+    <!-- OpenLayers CSS -->
+    <link
+      rel="stylesheet"
+      href="./vendor/ol/ol.css" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="data:," />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__title">WebGIS A2</div>
+        <div class="brand__subtitle">OpenLayers + Geocoding + Weather</div>
+      </div>
+
+      <div class="search">
+        <input
+          id="searchInput"
+          class="search__input"
+          type="text"
+          placeholder="Search a place (e.g., Helsinki, Finland)"
+          autocomplete="off"
+        />
+        <button id="searchBtn" class="search__btn">Search</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="mapwrap">
+        <div id="map" class="map"></div>
+
+        <!-- Small status strip -->
+        <div id="status" class="status status--hidden"></div>
+
+        <!-- Weather Card -->
+        <div id="weatherCard" class="weather weather--hidden">
+          <div class="weather__header">
+            <div>
+              <div id="weatherTitle" class="weather__title">Weather</div>
+              <div id="weatherMeta" class="weather__meta">—</div>
+            </div>
+            <button id="weatherClose" class="weather__close" title="Close">
+              ✕
+            </button>
+          </div>
+
+          <div id="weatherBody" class="weather__body"></div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h2>How to use</h2>
+          <ol>
+            <li>Type a place and press <b>Search</b> (Geocoding).</li>
+            <li>Click anywhere on the map to get <b>Weather</b>.</li>
+            <li>Use controls: zoom, fullscreen, scale, mouse coords.</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>Debug</h2>
+          <div class="kv">
+            <div class="kv__k">Last search</div>
+            <div id="dbgSearch" class="kv__v">—</div>
+            <div class="kv__k">Last click</div>
+            <div id="dbgClick" class="kv__v">—</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Notes</h2>
+          <p>
+            This project uses <b>Open-Meteo</b> APIs (Geocoding + Weather) which do
+            <b>not require API keys</b>. All requests are made via <code>fetch</code>.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Config (local, ignored by git) -->
+    <!--script src="./config.js"></script-->
+
+    <!-- OpenLayers JS -->
+<script src="./vendor/ol/ol.js"></script>
+
+    <!-- App -->
+    <script src="./script.js"></script>
+  </body>
+</html>
